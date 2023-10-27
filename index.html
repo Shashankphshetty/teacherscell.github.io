@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table</title>
+    <img src="1.png" alt="logo">
+    <style>
+        table {
+            width: 50%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+            background-color: yellow;
+        }
+        th {
+            background-color: yellow;
+        }
+        button {
+            margin-top: 10px;
+            background-color: white;
+
+        }
+    </style>
+</head>
+<body style="background-color:gray">
+    <h5 style="text-align: center;font-size: x-large;">Welcome to Teacher's Cells</h5>
+    <h2>Result:</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Mathematics Marks</th>
+                <th>English Marks</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <tr>
+                <td><input type="text" name="name[]"></td>
+                <td><input type="number" name="number1[]"></td>
+                <td><input type="number" name="number1[]"></td>
+                <td><input type="number" name="number[]"></td>
+                <td><button onclick="removeRow(this)">Remove Student</button></td>
+             
+            </tr>
+        </tbody>
+    </table>
+    <button onclick="addRow()">Add Student</button>
+    <script>
+        function addRow() {
+            const tableBody = document.getElementById("table-body");
+            const newRow = document.createElement("tr");
+            newRow.innerHTML = `
+            <td><input type="text" name="name[]"></td>
+                <td><input type="number" name="number1[]"></td>
+                <td><input type="number" name="number1[]"></td>
+                <td><input type="number" name="number[]"></td>
+                <td><button onclick="removeRow(this)">Remove Student</button></td>
+            `;
+            tableBody.appendChild(newRow);
+        }
+
+        function removeRow(button) {
+            const row = button.parentNode.parentNode;
+            const tableBody = document.getElementById("table-body");
+            tableBody.removeChild(row);
+        }
+    </script>
+       <button><a href="submit.html">Submit</a></button>
+</body>
+</html>
